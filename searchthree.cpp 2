@@ -6,3 +6,5 @@ class node
 {
 public:
     string info; I
+    node *leftchild;
+    node *rightchild;
