@@ -1,28 +1,24 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
 
-class node
-{
-public:
-    string info; I
-    node *leftchild;
-    node *rightchild;
+class Node {
+    public:
+    string info;
+        Node *leftchild;
+        Node *rightchild;
+        Node(string i, Node *l, Node *r)
+        {
+            info = i;
+            leftchild = l;
+            rightchild = r;
+        }
+};
 
-    //constructor for node class
-    node(string i, node *l, node *r)
-    {
-        info = i;
-        leftchild = l;
-        rightchild = r;
-    }
-}
-
-class BinaryTree
-{
-public:
+class BinaryTree{
+    public:
     Node *ROOT;
-
+  
     BinaryTree()
     {
         ROOT = NULL; // Initializing ROOT to null
@@ -41,3 +37,20 @@ public:
         Node *currentNode = NULL;
 
         search(element, parent, currentNode);
+
+        if (parent == NULL)
+        {
+            ROOT = newNode;
+            return;
+        }
+
+        if (element < parent->info)
+        {
+            parent->leftchild = newNode;
+        }
+        else if (element > parent->info)
+        {
+            parent->rightchild = newNode;
+        }
+    }
+
